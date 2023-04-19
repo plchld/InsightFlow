@@ -1,0 +1,10 @@
+langchain==0.0.142
+openai==0.27.4
+pyaudio==0.2.13
+pydub==0.25.1
+tiktoken==0.3.3
+pandas==2.0.0
+yt_dlp==2023.3.4
+google-api-python-client==2.85.0
+chromadb==0.3.21
+cohere==4.1.7
