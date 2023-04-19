@@ -1,0 +1,14 @@
+[tool.pycln]
+all = true
+extend_exclude = ["wela-vae-env/*", "legacy/*"]
+
+[tool.black]
+line-length = 88
+target-version = ['py39']
+extend-exclude = ["wela-vae-env/*", "legacy/*"]
+
+[tool.isort]
+py_version = 39
+line_length = 88
+profile = "black"
+extend_skip_glob = ["wela-vae-env/*", "legacy/*"]
