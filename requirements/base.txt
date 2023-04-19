@@ -8,3 +8,4 @@ yt_dlp==2023.3.4
 google-api-python-client==2.85.0
 chromadb==0.3.21
 cohere==4.1.7
+beautifulsoup4==4.12.4

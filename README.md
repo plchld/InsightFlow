@@ -12,6 +12,8 @@ Welcome to InsightFlow - an AI-powered solution for extracting valuable insights
 
 
 ### Installation 🛠️
+Recommended python >= 3.7. Developed on python 3.10.
+
 Clone the InsightFlow repository:
 ```bash
     git clone https://github.com/plchld/InsightFlow.git
@@ -22,17 +24,17 @@ Navigate to the project directory:
 ```
 Install the required dependencies:
 ```bash
-    pip install -r requirements.txt
+    pip install -r requirements/base.txt
 ```
 ### Configuration 🔧
 - Create a local_settings.py file in the project directory.
 - Add your API keys, temperature settings for the GPT models, and the path for the - transcriptions to the local_settings.py file:
 
 ```python
-YOUTUBE_API_KEY = 'Your_Youtube_API_Key"
-OPENAI_API_KEY = 'Your_OpenAI_API_Key'
-COHERE_API_KEY = 'Your_Cohere_API_Key'
-DATA_PATH = 'Your_pathname'
+YOUTUBE_API_KEY = "Your_Youtube_API_Key"
+OPENAI_API_KEY = "Your_OpenAI_API_Key"
+COHERE_API_KEY = "Your_Cohere_API_Key"
+DATA_PATH = "Your_pathname"
 CHAT_MODEL_TEMPERATURE = 0.0 #temprature if using GPT3
 GPT_4_TEMPERATURE = 0.0
 ```

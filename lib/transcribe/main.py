@@ -37,7 +37,7 @@ def transcribe_main(video_id=None, file_path=None):
             transcription = transcribe_audio_file(
                 os.path.join(f'{Config.data_path}/audio/audio_{videoid}.mp3')
             )
-            save_to_file(f"transctipt_{videoid}", transcription)
+            save_to_file(f"transctipt_{videoid}.txt", transcription)
             print(
                 f"Transcription saved to {Config.data_path}/transcripts/"
                 f"transcript_{videoid}.txt"

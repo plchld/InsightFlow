@@ -2,6 +2,7 @@ from pathlib import Path
 from local_settings import (
     OPENAI_API_KEY,
     YOUTUBE_API_KEY,
+    COHERE_API_KEY,
     DATA_PATH,
     CHAT_MODEL_TEMPERATURE,
     GPT_4_TEMPERATURE,
@@ -29,6 +30,10 @@ class _Config:
     @property
     def youtube_key(self):
         return YOUTUBE_API_KEY
+
+    @property
+    def cohere_key(self):
+        return COHERE_API_KEY
 
     @property
     def chat_temp(self):
