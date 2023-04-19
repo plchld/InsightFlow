@@ -13,10 +13,11 @@ if __name__ == "__main__":
         doc_scraping_main()
     elif choice == "transcribe":
         video_id = input("Enter video id (v) or leave empty if using a file: ")
+        prompt_text = input("Enter a prompt text as context for the transcription: ")
         file_path = None
         if not video_id:
             file_path = input("Enter path to file (f): ")
-        transcribe_main(video_id, file_path)
+        transcribe_main(video_id, file_path, prompt_text)
     elif choice == "chat":
         chat_main()
     else:

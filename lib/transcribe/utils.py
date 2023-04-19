@@ -93,8 +93,8 @@ def download_youtube_videos(video_urls: list) -> None:
 
 #splitting because maximum duration is 25min
 def split_audio_file(
-        audio_file_path: str,
-        max_duration: int=25*60*1000,
+    audio_file_path: str,
+    max_duration: int=25*60*1000,
 ) -> list:
     """Splits audio file in chunks of ``max_duration`` miliseconds.
 
@@ -121,8 +121,8 @@ def split_audio_file(
 
 
 def transcribe_audio_chunks(
-        audio_chunks: list,
-        prompt_text: Optional[str] = None,
+    audio_chunks: list,
+    prompt_text: Optional[str] = None,
 ) -> str:
     """
     Transcribes the audio chunks one at a time, using the 80 last tokens of each
@@ -157,15 +157,19 @@ def transcribe_audio_chunks(
     return ' '.join(transcriptions)
 
 
-def transcribe_audio_file(audio_file_path: str) -> str:
+def transcribe_audio_file(
+    audio_file_path: str,
+    prompt_text: Optional[str] = None,
+) -> str:
     """
     Wrapper function for transcription of one file.
 
     :param audio_file_path: path to audio file
+    :param prompt_text: Optional, a context prompt text if available.
     :return: string with transcription
     """
     audio_chunks = split_audio_file(audio_file_path)
-    transcription = transcribe_audio_chunks(audio_chunks)
+    transcription = transcribe_audio_chunks(audio_chunks, prompt_text)
 
     return transcription
 

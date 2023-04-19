@@ -11,14 +11,15 @@ from lib.transcribe.utils import (
 
 from lib.config import Config
 
-def transcribe_main(video_id=None, file_path=None):
+def transcribe_main(video_id=None, file_path=None, prompt_text=None):
 
     if video_id and not file_path:
         video_url, video_title = get_youtube_video_url_title(video_id)
         print(f"Processing video: {video_title}")
         download_youtube_video(video_url)
         transcription = transcribe_audio_file(
-            os.path.join(f'{Config.data_path}/audio/audio_{video_id}.mp3')
+            os.path.join(f'{Config.data_path}/audio/audio_{video_id}.mp3'),
+            prompt_text=prompt_text,
         )
         save_to_file(f"transctipt_{video_id}", transcription)
         print(
@@ -35,16 +36,17 @@ def transcribe_main(video_id=None, file_path=None):
             print(f"Processing video: {video_title}")
             download_youtube_video(video_url)
             transcription = transcribe_audio_file(
-                os.path.join(f'{Config.data_path}/audio/audio_{videoid}.mp3')
+                os.path.join(f'{Config.data_path}/audio/audio_{videoid}.mp3'),
+                prompt_text=prompt_text,
             )
-            save_to_file(f"transctipt_{videoid}.txt", transcription)
+            save_to_file(f"transcript_{videoid}.txt", transcription)
             print(
                 f"Transcription saved to {Config.data_path}/transcripts/"
                 f"transcript_{videoid}.txt"
             )
 
     else:
-        print("Choose only one of arguments -v or -f")
+        print("Pass either a video id or a file path.")
 
 if __name__ == "__main__":
     transcribe_main()
