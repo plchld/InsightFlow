@@ -31,7 +31,7 @@ Install the required dependencies:
 - Add your API keys, temperature settings for the GPT models, and the path for the - transcriptions to the local_settings.py file:
 
 ```python
-YOUTUBE_API_KEY = "Your_Youtube_API_Key"
+YOUTUBE_API_KEY = "Your_Youtube_API_Key" #needed only if you use the video scraper
 OPENAI_API_KEY = "Your_OpenAI_API_Key"
 COHERE_API_KEY = "Your_Cohere_API_Key"
 DATA_PATH = "Your_pathname"
