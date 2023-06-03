@@ -16,15 +16,15 @@ Recommended python >= 3.7. Developed on python 3.10.
 
 Clone the InsightFlow repository:
 ```bash
-    git clone https://github.com/plchld/InsightFlow.git
+git clone https://github.com/plchld/InsightFlow.git
 ```
 Navigate to the project directory:
 ```bash
-    cd InsightFlow
+cd InsightFlow
 ```
 Install the required dependencies:
 ```bash
-    pip install -r requirements/base.txt
+pip install -r requirements/base.txt
 ```
 ### Configuration 🔧
 - Create a local_settings.py file in the project directory.
@@ -33,7 +33,7 @@ Install the required dependencies:
 ```python
 YOUTUBE_API_KEY = "Your_Youtube_API_Key" #needed only if you use the video scraper
 OPENAI_API_KEY = "Your_OpenAI_API_Key"
-COHERE_API_KEY = "Your_Cohere_API_Key"
+COHERE_API_KEY = "Your_Cohere_API_Key" #needed for the embeddings
 DATA_PATH = "Your_pathname"
 CHAT_MODEL_TEMPERATURE = 0.0 #temprature if using GPT3
 GPT_4_TEMPERATURE = 0.0
