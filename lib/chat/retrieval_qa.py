@@ -26,6 +26,6 @@ def setup_retrieval_qa(vectordb):
     
     chain_type_kwargs = {"prompt": PROMPT}
 
-    retriever = vectordb.as_retriever(search_type="mmr",search_kwargs={"k": 5})
+    retriever = vectordb.as_retriever(search_type="mmr",search_kwargs={"k": 10})
     qa = RetrievalQA.from_chain_type(llm4, chain_type="stuff", retriever=retriever, return_source_documents=True)
     return qa

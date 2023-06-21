@@ -6,6 +6,7 @@ from local_settings import (
     DATA_PATH,
     CHAT_MODEL_TEMPERATURE,
     GPT_4_TEMPERATURE,
+    AZURE_KEY
 )
 
 
@@ -42,6 +43,9 @@ class _Config:
     @property
     def gpt4_temp(self):
         return GPT_4_TEMPERATURE
-
+    
+    @property
+    def azureoai_key(self):
+        return AZURE_KEY
 
 Config = _Config()

@@ -3,6 +3,7 @@
 import os
 from lib.chat.process_text import read_input_files, split_texts, create_documents, create_vectordb_from_docs, translate_documents, documents_from_csv, load_persisted_chromadb, get_fieldnames_from_csv
 from lib.chat.retrieval_qa import setup_retrieval_qa
+from lib.config import Config
 
 def print_colored_output(text, color_code):
     print(f"\033[{color_code}m{text}\033[0m")
@@ -20,8 +21,6 @@ def chat_main():
     # Separate .txt and .csv files
     txt_files = [file for file in INPUT_FILES if file.endswith(".txt")]
     csv_files = [file for file in INPUT_FILES if file.endswith(".csv")]
-    print(csv_files,'eeeeee')
-
     if csv_files:
         #this gets the first row of the csv as fieldnames(columns)
         fieldnames = get_fieldnames_from_csv(csv_files[0])
@@ -85,7 +84,7 @@ def chat_main():
             break
 
         vectordbkwargs = {"search_distance": 0.9}
-        result = qa({"query": query, "vectordbkwargs": vectordbkwargs, "chat_history": chat_history})
+        result = qa({"query": query, "vectordbkwargs": vectordbkwargs})
         
         # Append the result to chat_history
         chat_history.append(result["result"])

@@ -53,10 +53,12 @@ def documents_from_csv(csv_path,fieldnames):
     return docs
 
 
-def create_vectordb_from_docs(docs, persist_directory):
+def create_vectordb_from_docs(docs, persist_directory=None):
     vectordb = Chroma.from_documents(documents=docs, embedding=openai_embeddings, persist_directory=persist_directory)
-    vectordb.persist()
+    if persist_directory:
+        vectordb.persist()
     return vectordb
+
 
 def load_persisted_chromadb(persist_directory):
     vectordb = Chroma(persist_directory=persist_directory, 
