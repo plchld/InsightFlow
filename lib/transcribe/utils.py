@@ -12,14 +12,28 @@ import openai
 openai.api_key = Config.openai_key
 youtube = build('youtube', 'v3', developerKey=Config.youtube_key)
 
-def get_video_urls(filename: str) -> list:
-    """Gets video ids from file.
+from pydub.utils import which
 
-    :param filename: name of source file, must be .csv
-    :return: list of video ids
+AudioSegment.converter = which("ffmpeg")
+
+def transcribe_local_video_file(video_file_path: str, prompt_text: Optional[str] = None) -> str:
     """
+    Wrapper function for transcription of a local video file.
 
-    return pd.read_csv(f"{Config.data_path}/{filename}").tolist()
+    :param video_file_path: path to local video file
+    :param prompt_text: Optional, a context prompt text if available.
+    :return: string with transcription
+    """
+    # Extract audio from the video file
+    video = AudioSegment.from_file(video_file_path, "mp4")
+    audio_file_path = video_file_path.rsplit(".", 1)[0] + ".wav"
+    video.export(audio_file_path, format="wav")
+
+    # Transcribe the audio file
+    audio_chunks = split_audio_file(audio_file_path)
+    transcription = transcribe_audio_chunks(audio_chunks, prompt_text)
+
+    return transcription
 
 
 def get_youtube_video_url_title(video_id: str) -> Tuple[str, str]:

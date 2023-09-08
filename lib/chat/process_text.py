@@ -21,7 +21,7 @@ def read_input_files(file_paths):
 def split_texts(all_combined_articles):
     all_texts = []
     text_splitter = RecursiveCharacterTextSplitter(
-                                                  chunk_size=2048,
+                                                  chunk_size=4096,
                                                   chunk_overlap=256,
                                                   length_function=len
                                                   )

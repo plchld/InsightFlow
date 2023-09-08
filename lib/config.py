@@ -2,11 +2,15 @@ from pathlib import Path
 from local_settings import (
     OPENAI_API_KEY,
     YOUTUBE_API_KEY,
-    COHERE_API_KEY,
     DATA_PATH,
     CHAT_MODEL_TEMPERATURE,
     GPT_4_TEMPERATURE,
-    AZURE_KEY
+    AZURE_KEY,
+    BASE_URL,
+    AZURE_KEY,
+    DEPLOYMENT_NAME,
+
+
 )
 
 
@@ -33,10 +37,6 @@ class _Config:
         return YOUTUBE_API_KEY
 
     @property
-    def cohere_key(self):
-        return COHERE_API_KEY
-
-    @property
     def chat_temp(self):
         return CHAT_MODEL_TEMPERATURE
 
@@ -45,7 +45,17 @@ class _Config:
         return GPT_4_TEMPERATURE
     
     @property
-    def azureoai_key(self):
+    def AZURE_KEY(self):
         return AZURE_KEY
-
+    
+    @property
+    def BASE_URL(self):
+        return BASE_URL
+    
+    @property
+    def DEPLOYMENT_NAME(self):
+        return DEPLOYMENT_NAME
+    
 Config = _Config()
+
+
